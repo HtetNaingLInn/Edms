@@ -28,6 +28,10 @@
 
                 <div class="col-lg-8 col-md-8 col-12 bg-white">
 
+                        @foreach ($errors->all() as $error)
+                    <p class=" alert alert-danger">{{$error}}</p>
+                        @endforeach
+
                     <div class="card m-5">
                         <div class="card-header">
                             <h5 class="text-success">Create A New Letter</h5>

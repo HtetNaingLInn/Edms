@@ -7,6 +7,7 @@ use App\Models\Message;
 use App\Models\Copy_Message;
 use Illuminate\Http\Request;
 use App\Models\Message_Attach;
+use App\Http\Requests\MessageRequest;
 
 class MessageController extends Controller
 {
@@ -26,7 +27,7 @@ class MessageController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(MessageRequest $request)
     {
         $message=Message::create([
             'message_no'=>$request->message_no,
@@ -57,7 +58,7 @@ class MessageController extends Controller
             ]);
         }
 
-        return redirect(Route('message.create'))->with('success','Created Successful');
+        return redirect(Route('message.create'))->with('success','Message Is Sending');
 
 
     }
@@ -69,20 +70,25 @@ class MessageController extends Controller
     }
 
 
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
 
     public function destroy($id)
     {
         //
+    }
+
+    public function inbox($id){
+        $user=User::find($id);
+       $copy=$user->copy_message;
+
+
+        dd($copy);
+    //    return view('admin.message.inbox',compact('messages'));
+}
+
+
+    public function sent($id){
+            $user=User::find($id);
+            $messages=$user->message;
+            return view('admin.message.sent',compact('messages'));
     }
 }

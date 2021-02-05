@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Team;
 use App\Policies\TeamPolicy;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -26,6 +27,17 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('isAdmin',function($user){
+            return $user->role ==="Admin";
+       });
+       Gate::define('isPostmen',function($user){
+        return $user->role ==="Postmen";
+       });
+
+       Gate::define('isAdminOrPostmen',function($user){
+        return  $user->role ==='Admin'|| $user->role ==="Postmen";
+       });
+
+
     }
 }

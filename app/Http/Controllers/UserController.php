@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -64,5 +65,10 @@ class UserController extends Controller
         $user=User::find($id);
         $user->delete();
         return redirect(Route('user.index'))->with('success','Deleted Successful');
+    }
+
+    public function logout($id){
+        Auth::logout($id);
+        return view('welcome');
     }
 }

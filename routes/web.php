@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MessageController;
 
@@ -16,11 +17,19 @@ use App\Http\Controllers\MessageController;
 */
 Route::view('/','welcome');
 
-Route::view('/admin','admin.site.dashboard');
+Route::get('logout/{id}',[UserController::class,'logout'])->name('user.logout');
 
-// Route::view('/','dashboard')->name('dashboard');
 
-Route::group(['prefix' => 'admin'], function () {
+// Route::get('/admin',[HomeController::class,'dash']);
+   Route::view('/admin','admin.site.dashboard');
+
+
+Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
+
+
+Route::group(['middleware' => ['can:isAdmin']], function () {
+
+
     Route::get('user',[UserController::class,'index'])->name('user.index');
     Route::get('user/create',[UserController::class,'create'])->name('user.create');
     Route::post('user/store',[UserController::class,'store'])->name('user.store');
@@ -28,18 +37,22 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('user/update/{id}',[UserController::class,'update'])->name('user.update');
     Route::get('user/delete/{id}',[UserController::class,'destroy'])->name('user.delete');
 
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('message/create',[MessageController::class,'create'])->name('message.create');
-    Route::post('message/store',[MessageController::class,'store'])->name('message.store');
     Route::get('message',[MessageController::class,'index'])->name('message.index');
+
     Route::get('message/delete/{id}',[MessageController::class,'destroy'])->name('message.delete');
 
+});
 
 
+Route::group(['middleware' => ['can:isAdminOrPostmen']], function () {
 
+    Route::get('message/create',[MessageController::class,'create'])->name('message.create');
+    Route::post('message/store',[MessageController::class,'store'])->name('message.store');
+
+    Route::get('message/user/{id}/inbox',[MessageController::class,'inbox'])->name('message.inbox');
+
+    Route::get('message/user/{id}/sent',[MessageController::class,'sent'])->name('message.sent');
 
 });
 
+});

@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     public function copy_message()
     {
-        return $this->belongsTo(Copy_Message::class);
+        return $this->hasMany(Copy_Message::class);
     }
 
 

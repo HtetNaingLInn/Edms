@@ -35,6 +35,9 @@
                     </a>
                 </li>
 
+             @can('isAdmin')
+
+
                 <li class="nav-item">
                     {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
                     <a href="{{route('user.index')}}" class="nav-link">
@@ -44,6 +47,7 @@
                         </p>
                     </a>
                 </li>
+            @endcan
                 <li class="nav-item">
                     {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
                     <a href="{{route('message.create')}}" class="nav-link">
@@ -53,7 +57,7 @@
                         </p>
                     </a>
                 </li>
-
+                @can('isAdmin')
                 <li class="nav-item">
                     {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
                     <a href="{{route('message.index')}}" class="nav-link">
@@ -63,10 +67,10 @@
                         </p>
                     </a>
                 </li>
-
+                @endcan
                 <li class="nav-item">
                     {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
-                    <a href="{{route('user.index')}}" class="nav-link">
+                    <a href="{{route('message.inbox',Auth::user()->id)}}" class="nav-link">
                         <i class="nav-icon fas fa-inbox text-info"></i>
                         <p>
                             inbox message
@@ -76,7 +80,7 @@
 
                 <li class="nav-item">
                     {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
-                    <a href="{{route('user.index')}}" class="nav-link">
+                    <a href="{{route('message.sent',Auth::user()->id)}}" class="nav-link">
                         <i class="nav-icon fas fa-share-square text-primary"></i>
                         <p>
                             sent message
@@ -84,9 +88,17 @@
                     </a>
                 </li>
 
+                <hr>
 
-
-
+                <li class="nav-item">
+                    {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
+                    <a href="{{route('user.logout',Auth::user()->id)}}" class="nav-link">
+                        <i class="nav-icon fas fa-power-off"></i>
+                        <p>
+                            logout
+                        </p>
+                    </a>
+                </li>
 
 
 
