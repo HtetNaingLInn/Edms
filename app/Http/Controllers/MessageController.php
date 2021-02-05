@@ -66,7 +66,12 @@ class MessageController extends Controller
 
     public function show($id)
     {
-        //
+        $message=Message::find($id);
+        // $user=$message->user->name;
+        // dd($user);
+        // $file=$message->message_attach;
+        // dd($file);
+        return view('admin.message.show',compact('message'));
     }
 
 
@@ -77,11 +82,16 @@ class MessageController extends Controller
     }
 
     public function inbox($id){
+
+
         $user=User::find($id);
-       $copy=$user->copy_message;
+       $mentions=$user->copy_message;
+
+    //    $message=$mentions->message_id;
 
 
-        dd($copy);
+
+       dd($mentions);
     //    return view('admin.message.inbox',compact('messages'));
 }
 

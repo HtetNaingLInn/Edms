@@ -53,6 +53,8 @@ Route::group(['middleware' => ['can:isAdminOrPostmen']], function () {
 
     Route::get('message/user/{id}/sent',[MessageController::class,'sent'])->name('message.sent');
 
+    Route::get('message/{id}/show',[MessageController::class,'show'])->name('message.show');
+
 });
 
 });
