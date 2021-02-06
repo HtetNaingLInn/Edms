@@ -48,7 +48,7 @@ class MessageController extends Controller
         }
 
         $files=$request->file;
-
+        if($files){
         foreach($files as $file){
             $fileName=time().'_'.$file->getClientOriginalName();
             $file->move(public_path().'/attach/',$fileName);
@@ -57,7 +57,7 @@ class MessageController extends Controller
                 'file'=>$fileName
             ]);
         }
-
+                 }
         return redirect(Route('message.create'))->with('success','Message Is Sending');
 
 
@@ -67,10 +67,6 @@ class MessageController extends Controller
     public function show($id)
     {
         $message=Message::find($id);
-        // $user=$message->user->name;
-        // dd($user);
-        // $file=$message->message_attach;
-        // dd($file);
         return view('admin.message.show',compact('message'));
     }
 
@@ -86,12 +82,6 @@ class MessageController extends Controller
 
         $user=User::find($id);
        $mentions=$user->copy_message;
-
-
-
-
-
-    //    dd($mentions);
        return view('admin.message.inbox',compact('mentions'));
 }
 

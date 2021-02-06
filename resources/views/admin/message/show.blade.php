@@ -8,6 +8,9 @@
             <div class="row mb-2">
                 <div class="col-sm-4">
                     <h1 class="m-0 text-dark">Message</h1>
+                    <a href="{{route('message.index')}}" class="btn btn-primary btn-sm mt-3 mb-3">
+                        <i class="fas fa-arrow-circle-left"></i>&nbsp; Back
+                    </a>
                 </div><!-- /.col -->
                 <div class="col-sm-4">
                     @include('admin.error')
@@ -29,7 +32,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
 
-                <div class="col-lg-12 col-md-12 col-12 bg-white">
+                <div class="col-lg-8 offset-2 col-md-12 col-12 bg-white">
 
                     <div class="card-body">
 
@@ -50,7 +53,11 @@
 
 
                         @foreach ($message->message_attach as $files)
-                            <i>{{$files->file}}</i><br>
+                            {{-- <i>{{$files->file}}</i><br> --}}
+
+
+                            <img src="{{asset('attach/'.$files->file)}}"
+                                            style="width:50px !important;">
                         @endforeach
 
 

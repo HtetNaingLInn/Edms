@@ -9,6 +9,7 @@
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Create Message</h1>
                 </div><!-- /.col -->
+
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Message / Create</a></li>
@@ -28,10 +29,10 @@
 
                 <div class="col-lg-8 col-md-8 col-12 bg-white">
 
-                        @foreach ($errors->all() as $error)
-                    <p class=" alert alert-danger">{{$error}}</p>
-                        @endforeach
 
+                        <div class="col-sm-4">
+                            @include('admin.error')
+                        </div>
                     <div class="card m-5">
                         <div class="card-header">
                             <h5 class="text-success">Create A New Letter</h5>

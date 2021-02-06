@@ -70,6 +70,7 @@
                                     </td>
                                     <td>
                                         <a href="{{Route('message.delete',$message->id)}}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                                        <a href="{{Route('message.show',$message->id)}}"><button class="btn btn-info btn-sm">Detail</button></a>
                                     </td>
                                 </tr>
 
