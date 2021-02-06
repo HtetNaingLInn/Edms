@@ -37,14 +37,13 @@
 
                     <p class="text-bold">Letter_NO : {{$message->message_no}}</p>
                     <p class="text-bold">Sender Name : &nbsp;{{$message->user->name}}</p>
+                        <hr>
                         <br>
-                        <br>
-                        <br>
-                        <br>
-                    <h4 class="text-bold">Title : &nbsp;{{$message->title}}</h4>
+                    <h5 class="text-bold">Title : &nbsp;{{$message->title}}</h5>
+                    <hr>
                     <h4 class="text-center text-bold">Description</h4>
                     <p class="text-center">{{$message->description}}</p>
-
+                        <hr>
                         <p>Attach Files</p>
 
                         @if ($message->message_attach)
@@ -56,7 +55,7 @@
 
 
                         @endif
-                        <br>
+                        <hr>
                         <br>
                         <br>
                         <p class="text-bold">Reciver</p>

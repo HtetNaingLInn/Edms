@@ -87,12 +87,12 @@ class MessageController extends Controller
         $user=User::find($id);
        $mentions=$user->copy_message;
 
-    //    $message=$mentions->message_id;
 
 
 
-       dd($mentions);
-    //    return view('admin.message.inbox',compact('messages'));
+
+    //    dd($mentions);
+       return view('admin.message.inbox',compact('mentions'));
 }
 
 

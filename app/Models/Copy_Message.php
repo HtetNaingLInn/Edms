@@ -17,7 +17,7 @@ class Copy_Message extends Model
     ];
     public function message()
     {
-        return $this->hsaMany(Message::class);
+        return $this->belongsTo(Message::class);
     }
 
     public function user()

@@ -50,24 +50,21 @@
                             </thead>
                             <tbody>
                                 @php $i=1; @endphp
-                                @foreach($messages as $message)
+                                 @foreach ($mentions as $mention)
                                 <tr>
                                     <td>@php echo $i;$i++; @endphp</td>
-                                    <td>{{$message->message_no}}</td>
-                                    <td>{{$message->date}}</td>
-                                    <td>{{$message->title}}</td>
-                                    <td>{{$message->description}}</td>
+                                    <td>{{$mention->message->message_no}}</td>
+                                    <td>{{$mention->message->date}}</td>
+                                    <td>{{$mention->message->title}}</td>
+                                    <td>{{$mention->message->description}}</td>
                                     <td>
-                                        {{-- @foreach ($message->copy_message as $message)
-                                          <button class="btn btn-dark btn-sm">
-                                            {{$message->user->name}}
-                                          </button>
-                                        @endforeach --}}
-                                        {{$message->user->name}}
 
+                                          <button class="btn btn-dark btn-sm">
+                                            {{$mention->message->user->name}}
+                                          </button>
                                     </td>
                                     <td>
-                                        <a href="{{Route('message.delete',$message->id)}}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                                        <a href="{{Route('message.show',$mention->message->id)}}"><button class="btn btn-info btn-sm">Detail</button></a>
                                     </td>
                                 </tr>
 
