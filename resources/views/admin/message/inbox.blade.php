@@ -56,7 +56,7 @@
                                     <td>{{$mention->message->message_no}}</td>
                                     <td>{{$mention->message->date}}</td>
                                     <td>{{$mention->message->title}}</td>
-                                    <td>{{$mention->message->description}}</td>
+                                    <td>{{Str::limit($mention->message->description,100)}}</td>
                                     <td>
 
                                           <button class="btn btn-dark btn-sm">

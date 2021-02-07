@@ -58,7 +58,7 @@
                                     <td>{{$message->message_no}}</td>
                                     <td>{{$message->date}}</td>
                                     <td>{{$message->title}}</td>
-                                    <td>{{$message->description}}</td>
+                                    <td>{{Str::limit($message->description,100)}}</td>
                                     <td>
                                         @foreach ($message->copy_message as $message)
                                           <button class="btn btn-dark btn-sm">

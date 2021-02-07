@@ -74,7 +74,7 @@
                                         style="border:1px solid black;" multiple>
                                 </div>
 
-                                <select class="form-control" id="exampleFormControlSelect1" name="users[]" multiple>
+                                <select class="form-control" id="user" name="users[]" multiple>
 
                                     @foreach ($users as $user)
 
@@ -109,4 +109,7 @@
     </section>
     <!-- /.content -->
 </div>
+<script>
+
+</script>
 @endsection
