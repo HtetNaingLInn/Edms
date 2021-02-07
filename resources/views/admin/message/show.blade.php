@@ -8,9 +8,19 @@
             <div class="row mb-2">
                 <div class="col-sm-4">
                     <h1 class="m-0 text-dark">Message</h1>
+                    @if (Auth::user()->role == "Admin")
+
+
                     <a href="{{route('message.index')}}" class="btn btn-primary btn-sm mt-3 mb-3">
                         <i class="fas fa-arrow-circle-left"></i>&nbsp; Back
                     </a>
+
+                    @else
+                    <a href="{{route('message.inbox',Auth::user()->id)}}" class="btn btn-primary btn-sm mt-3 mb-3">
+                        <i class="fas fa-arrow-circle-left"></i>&nbsp; Back
+                    </a>
+
+                    @endif
                 </div><!-- /.col -->
                 <div class="col-sm-4">
                     @include('admin.error')

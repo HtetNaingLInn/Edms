@@ -30,7 +30,7 @@
                 <div class="col-lg-8 col-md-8 col-12 bg-white">
 
 
-                        <div class="col-sm-4">
+                        <div class="col-md-8 offset-2 mt-3">
                             @include('admin.error')
                         </div>
                     <div class="card m-5">
@@ -77,9 +77,11 @@
                                 <select class="form-control" id="user" name="users[]" multiple>
 
                                     @foreach ($users as $user)
-
-                                    <option value="{{$user->id}}">{{$user->name}}</option>
-
+                                        @if ($user->id === Auth::user()->id)
+                                        <option value="{{$user->id}}" disabled >{{$user->name}}</option>
+                                        @else
+                                        <option value="{{$user->id}}">{{$user->name}}</option>
+                                        @endif
                                     @endforeach
                                   </select>
 
