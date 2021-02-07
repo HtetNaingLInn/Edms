@@ -63,6 +63,7 @@ class MessageController extends Controller
     public function show($id)
     {
         $message = Message::find($id);
+        // dd($message);
         return view('admin.message.show', compact('message'));
     }
 

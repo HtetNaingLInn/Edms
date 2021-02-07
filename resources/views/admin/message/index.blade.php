@@ -60,16 +60,17 @@
                                     <td>{{$message->title}}</td>
                                     <td>{{Str::limit($message->description,100)}}</td>
                                     <td>
-                                        @foreach ($message->copy_message as $message)
+                                        @foreach ($message->copy_message as $messagee)
                                           <button class="btn btn-dark btn-sm">
-                                            {{$message->user->name}}
+                                            {{$messagee->user->name}}
                                           </button>
                                         @endforeach
 
 
                                     </td>
                                     <td>
-                                        <a href="{{Route('message.delete',$message->id)}}"><button class="btn btn-danger btn-sm">Delete</button></a>
+                                        <a href="{{Route('message.delete',$message->id)}}"><button class="btn btn-danger btn-sm" disabled>Delete</button></a>
+
                                         <a href="{{Route('message.show',$message->id)}}"><button class="btn btn-info btn-sm">Detail</button></a>
                                     </td>
                                 </tr>
