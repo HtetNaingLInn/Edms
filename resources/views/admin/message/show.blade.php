@@ -16,7 +16,7 @@
                     </a>
 
                     @else
-                    <a href="{{route('message.inbox',Auth::user()->id)}}" class="btn btn-primary btn-sm mt-3 mb-3">
+                    <a href="{{route('message.user',Auth::user()->id)}}" class="btn btn-primary btn-sm mt-3 mb-3">
                         <i class="fas fa-arrow-circle-left"></i>&nbsp; Back
                     </a>
 

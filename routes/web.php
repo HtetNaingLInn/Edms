@@ -51,4 +51,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     });
 
+    Route::group(['middleware' => ['can:isPostmen']], function () {
+
+        Route::get('user/{id}/message', [MessageController::class, 'user_message'])->name('message.user');
+
+    });
+
 });

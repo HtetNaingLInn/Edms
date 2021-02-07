@@ -39,7 +39,7 @@
 
 
                 <li class="nav-item">
-                    {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
+
                     <a href="{{route('user.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-users text-warning"></i>
                         <p>
@@ -49,7 +49,6 @@
                 </li>
             @endcan
                 <li class="nav-item">
-                    {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
                     <a href="{{route('message.create')}}" class="nav-link">
                         <i class="nav-icon fas fa-plus-circle text-danger"></i>
                         <p>
@@ -59,7 +58,6 @@
                 </li>
                 @can('isAdmin')
                 <li class="nav-item">
-                    {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
                     <a href="{{route('message.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-envelope text-info"></i>
                         <p>
@@ -67,9 +65,17 @@
                         </p>
                     </a>
                 </li>
+                @elsecan('isPostmen')
+                <li class="nav-item">
+                    <a href="{{route('message.user',Auth::user()->id)}}" class="nav-link">
+                        <i class="nav-icon fas fa-envelope text-info"></i>
+                        <p>
+                             All Messages
+                        </p>
+                    </a>
+                </li>
                 @endcan
                 <li class="nav-item">
-                    {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
                     <a href="{{route('message.inbox',Auth::user()->id)}}" class="nav-link">
                         <i class="nav-icon fas fa-inbox text-info"></i>
                         <p>
@@ -79,7 +85,6 @@
                 </li>
 
                 <li class="nav-item">
-                    {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
                     <a href="{{route('message.sent',Auth::user()->id)}}" class="nav-link">
                         <i class="nav-icon fas fa-share-square text-primary"></i>
                         <p>
@@ -91,7 +96,6 @@
                 <hr>
 
                 <li class="nav-item">
-                    {{-- {{ (request()->is('admin/category')) ? 'active' : '' }} --}}
                     <a href="{{route('user.logout',Auth::user()->id)}}" class="nav-link">
                         <i class="nav-icon fas fa-power-off"></i>
                         <p>
@@ -100,237 +104,6 @@
                     </a>
                 </li>
 
-
-
-                <!-- <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link ">
-                        <i class="nav-icon fas fa-cart-arrow-down"></i>
-                        <p>
-                            Orders
-                            <span class="right badge badge-dark">+999,99</span>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Orders</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-tag"></i>
-                        <p>
-                            Products
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Products</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Customers
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Customers</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-signal"></i>
-                        <p>
-                            Analytics'
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Analytics'</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-bullhorn"></i>
-                        <p>
-                            Marketing
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Marketing</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="nav-icon fas fa-percent"></i>
-                        <p>
-                            Discount
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Discount</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th-large"></i>
-                        <p>
-                            App
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>App</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li> -->
-
-                <!-- <li class="nav-header">EXAMPLES</li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-shopping-bag"></i>
-                        <p>
-                            Online Store
-                            <i class="right fas fa-eye"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Online Store</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-home"></i>
-                        <p>
-                            Point of Sale
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Point of Sale</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>
-                            Google
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Google</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>
-                            Shopney-Mobile App
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Shopney-Mobile App</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>
-                            Facebook
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link">
-                                <i class="far fa-dot-circle nav-icon"></i>
-                                <p>Facebook</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li> -->
 
             </ul>
         </nav>

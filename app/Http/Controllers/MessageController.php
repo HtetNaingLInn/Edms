@@ -63,13 +63,7 @@ class MessageController extends Controller
     public function show($id)
     {
         $message = Message::find($id);
-        // dd($message);
         return view('admin.message.show', compact('message'));
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 
     public function inbox($id)
@@ -85,5 +79,12 @@ class MessageController extends Controller
         $user = User::find($id);
         $messages = $user->message;
         return view('admin.message.sent', compact('messages'));
+    }
+
+    public function user_message($id)
+    {
+        $user = User::find($id);
+        $messages = $user->message;
+        return view('admin.message.user', compact('messages'));
     }
 }
