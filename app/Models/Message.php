@@ -2,24 +2,23 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use App\Models\Copy_Message;
 use App\Models\Message_Attach;
-use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
 {
     use HasFactory;
 
-    protected $dates=['deleted_at'];
+    protected $dates = ['deleted_at'];
 
-    protected $fillable=[
+    protected $fillable = [
         'message_no',
-        'date',
         'title',
         'description',
-        'user_id'
+        'user_id',
     ];
 
     public function copy_message()
@@ -36,6 +35,5 @@ class Message extends Model
     {
         return $this->hasMany(Message_Attach::class);
     }
-
 
 }

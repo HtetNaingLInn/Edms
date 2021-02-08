@@ -44,6 +44,7 @@
                                     <th>Date</th>
                                     <th>Title</th>
                                     <th>Description</th>
+                                    <th>Time</th>
                                     <th>Sender</th>
                                     <th>Action</th>
                                 </tr>
@@ -52,11 +53,13 @@
                                 @php $i=1; @endphp
                                  @foreach ($mentions as $mention)
                                 <tr>
+
                                     <td>@php echo $i;$i++; @endphp</td>
                                     <td>{{$mention->message->message_no}}</td>
-                                    <td>{{$mention->message->date}}</td>
+                                    <td>{{$mention->message->created_at->toDateString()}}</td>
                                     <td>{{$mention->message->title}}</td>
                                     <td>{{Str::limit($mention->message->description,100)}}</td>
+                                    <td>{{$mention->message->created_at->format('h:i A') }}</td>
                                     <td>
 
                                           <button class="btn btn-dark btn-sm">

@@ -49,11 +49,11 @@
                                     <input type="text"  class="form-control" placeholder="Enter Letter Number"
                                         name="message_no">
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="name">Date :</label>
                                     <input type="date"  class="form-control"
                                         name="date">
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="name">Title :</label>
                                     <input type="text"  class="form-control" placeholder="Enter Letter Title"

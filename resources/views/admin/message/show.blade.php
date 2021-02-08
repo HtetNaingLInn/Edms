@@ -46,7 +46,7 @@
 
                     <div class="card-body">
 
-                    <h5 class="float-right"> Date : {{$message->date}}  </h5>
+                    <h5 class="float-right"> Date : {{$message->created_at->toDateString()}}  </h5>
 
                     <p class="text-bold">Letter_NO : {{$message->message_no}}</p>
                     <p class="text-bold">Sender Name : &nbsp;{{$message->user->name}}</p>

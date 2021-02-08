@@ -16,7 +16,7 @@ class CreateMessagesTable extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->string('message_no')->unique();
-            $table->date('date');
+            // $table->date('date');
             $table->string('title');
             $table->longText('description');
             $table->integer('user_id');

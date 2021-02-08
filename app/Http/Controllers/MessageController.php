@@ -29,7 +29,7 @@ class MessageController extends Controller
     {
         $message = Message::create([
             'message_no' => $request->message_no,
-            'date' => $request->date,
+            // 'date' => $request->date,
             'title' => $request->title,
             'description' => $request->description,
             'user_id' => $request->user_id,

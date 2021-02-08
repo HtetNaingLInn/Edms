@@ -45,6 +45,7 @@
                                     <th>Date</th>
                                     <th>Title</th>
                                     <th>Description</th>
+                                    <th>Time</th>
                                     <th>Reciver</th>
                                     <th>Action</th>
                                 </tr>
@@ -56,9 +57,10 @@
                                     <td>@php echo $i;$i++; @endphp</td>
                                     <td>{{$message->user->name}}</td>
                                     <td>{{$message->message_no}}</td>
-                                    <td>{{$message->date}}</td>
+                                    <td>{{$message->created_at->toDateString()}}</td>
                                     <td>{{$message->title}}</td>
                                     <td>{{Str::limit($message->description,100)}}</td>
+                                    <td>{{$message->created_at->format('h:i A')}}</td>
                                     <td>
                                         @foreach ($message->copy_message as $messagee)
                                           <button class="btn btn-dark btn-sm">
