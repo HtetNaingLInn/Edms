@@ -25,7 +25,6 @@ class MessageRequest extends FormRequest
     {
         return [
             'message_no'=>'required',
-            'date'=>'required',
             'title'=>'required',
             'description'=>'required',
             'users'=>'required'
